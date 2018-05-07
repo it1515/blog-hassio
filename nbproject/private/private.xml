@@ -4,11 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/www/blog-hassio/app/model/NewsManager.php</file>
-            <file>file:/D:/www/blog-hassio/app/config/config.local.neon</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/templates/News/commentaries.latte</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/templates/News/commentlist.latte</file>
             <file>file:/D:/www/blog-hassio/app/model/UserManager.php</file>
-            <file>file:/D:/www/blog-hassio/app/presenters/templates/News/insert.latte</file>
-            <file>file:/D:/www/blog-hassio/app/presenters/HomepagePresenter.php</file>
-            <file>file:/D:/www/blog-hassio/app/presenters/templates/Homepage/default.latte</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/templates/@layout.latte</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/NewsPresenter.php</file>
         </group>
     </open-files>
 </project-private>

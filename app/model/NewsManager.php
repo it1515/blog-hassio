@@ -74,6 +74,10 @@ class NewsManager {
     public function getCommentaries($user_id) {
         return $this->database->table('comments')->where('user_id', $user_id)->order('created_at DESC')->fetchAll();
     }
+    
+    public function getAllCommentaries() {
+        return $this->database->table('comments')->order('created_at DESC')->fetchAll();
+    }
 
     public function insert($values) {
         $this->database->table(self::TABLE_NAME)->insert($values);

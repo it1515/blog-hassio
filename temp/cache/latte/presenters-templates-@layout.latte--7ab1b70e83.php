@@ -42,7 +42,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">
-                    <img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 43 */ ?>/images/logo.png" alt="Logo">
+                    <img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 43 */ ?>/images/logo.jpg" alt="Logo">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,9 +64,9 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrace <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 63 */ ?>/clanky">Články</a></li>
+                        <li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:list")) ?>">Články</a></li>
                         <li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("User:list")) ?>">Účty</a></li>
-                        <li><a href="#">Komentáře</a></li>
+                        <li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:commentlist")) ?>">Komentáře</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Konfigurace aplikace</a></li>
                         <li role="separator" class="divider"></li>
@@ -166,7 +166,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Zpravodajský server v Nette Framework">
-    <meta name="author" content="Marek Lučný">
+    <meta name="author" content="Vojtěch Kronika">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 16 */ ?>/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->

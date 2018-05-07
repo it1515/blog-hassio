@@ -109,6 +109,13 @@ class NewsPresenter extends BasePresenter {
             throw new ForbiddenRequestException();
         $this['newsForm']->setDefaults($data);
     }
+    
+    public function renderCommentList() {
+        if (!$this->getUser()->isAllowed('News', 'commentlist')) {
+            throw new ForbiddenRequestException();
+        }
+        $this->template->data = $this->newsManager->getAll();
+    }
 
     /**
      * Vytváří a vrací komponentu formuláře pro přidání knihy.

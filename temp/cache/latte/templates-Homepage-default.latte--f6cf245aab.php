@@ -165,7 +165,7 @@ class Templatef6cf245aab extends Latte\Runtime\Template
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; SŠPU Opava 2017</p>
+                <p>Copyright &copy; SŠPU Opava 2018</p>
             </div>
         </div>
     </footer>
