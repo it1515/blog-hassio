@@ -37,6 +37,12 @@ class NewsPresenter extends BasePresenter {
         $this->flashMessage("Komentář byl úspěšně smazán");
         $this->redirect('this', $news_id);
     }
+    
+    public function handleDeleteCommentAdmin($comment_id) {
+        $this->newsManager->deleteComment($comment_id);
+        $this->flashMessage("Komentář byl úspěšně smazán");
+        $this->redirect('this');
+    }
 
     public function handleAuthor($id) {
         $this->template->author = $this->newsManager->getById($id)->ref('users', 'user_id');
@@ -111,10 +117,17 @@ class NewsPresenter extends BasePresenter {
     }
     
     public function renderCommentList() {
-        if (!$this->getUser()->isAllowed('News', 'commentlist')) {
-            throw new ForbiddenRequestException();
-        }
-        $this->template->data = $this->newsManager->getAll();
+        if (!$this->getUser()->isLoggedIn())
+            $this->redirect('Sign:in');
+        $user_id = $this->getUser()->getId();
+        $this->template->data = $this->newsManager->getAllCommentaries();
+    }
+    
+    public function renderAllCommentaries() {
+        if (!$this->getUser()->isLoggedIn())
+            $this->redirect('Sign:in');
+        $user_id = $this->getUser()->getId();
+        $this->template->data = $this->newsManager->getAllCommentaries();
     }
 
     /**

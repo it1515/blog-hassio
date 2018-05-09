@@ -1,5 +1,50 @@
-{* Latte template *}
-{block content}
+<?php
+// source: C:\xampp\htdocs\blog-hassio\app\presenters/templates/News/commentlist.latte
+
+use Latte\Runtime as LR;
+
+class Template53214733e0 extends Latte\Runtime\Template
+{
+	public $blocks = [
+		'content' => 'blockContent',
+		'head' => 'blockHead',
+		'scripts' => 'blockScripts',
+	];
+
+	public $blockTypes = [
+		'content' => 'html',
+		'head' => 'html',
+		'scripts' => 'html',
+	];
+
+
+	function main()
+	{
+		extract($this->params);
+		if ($this->getParentName()) return get_defined_vars();
+		$this->renderBlock('content', get_defined_vars());
+		$this->renderBlock('head', get_defined_vars());
+?>
+
+<?php
+		$this->renderBlock('scripts', get_defined_vars());
+		return get_defined_vars();
+	}
+
+
+	function prepare()
+	{
+		extract($this->params);
+		if (isset($this->params['comment'])) trigger_error('Variable $comment overwritten in foreach on line 20');
+		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
+		
+	}
+
+
+	function blockContent($_args)
+	{
+		extract($_args);
+?>
 <div class="container">
     <h1>Přehled komentářů</h1>
     <!-- Heading Row -->
@@ -17,25 +62,39 @@
                     </tr>    
                 </thead>    
                 <tbody>
-                    {foreach $data as $comment}
+<?php
+		$iterations = 0;
+		foreach ($data as $comment) {
+?>
                         <tr>
-                            <td><a n:href="News:view $comment->news_id">{$comment->ref('news','news_id')->title}</a></td> 
-                            <td>{$comment->ref('news','news_id')->category}</td>
-                            <td><p class="preview">{$comment->content|truncate:60}</p><p class="real">{$comment->content}</p></td>
-                            <td>{$comment->created_at|date:'%d. %m. %Y, %H:%m'}</td>
-                            <td>{$comment->ref('users','user_id')->username}</a></td>              
-                            <td><a n:href="deleteCommentAdmin! $comment->id" class="btn btn-danger">Smazat</a></td>
+                            <td><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$comment->news_id])) ?>"><?php
+			echo LR\Filters::escapeHtmlText($comment->ref('news','news_id')->title) /* line 22 */ ?></a></td> 
+                            <td><?php echo LR\Filters::escapeHtmlText($comment->ref('news','news_id')->category) /* line 23 */ ?></td>
+                            <td><p class="preview"><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->truncate, $comment->content, 60)) /* line 24 */ ?></p><p class="real"><?php
+			echo LR\Filters::escapeHtmlText($comment->content) /* line 24 */ ?></p></td>
+                            <td><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $comment->created_at, '%d. %m. %Y, %H:%m')) /* line 25 */ ?></td>
+                            <td><?php echo LR\Filters::escapeHtmlText($comment->ref('users','user_id')->username) /* line 26 */ ?></a></td>              
+                            <td><a class="btn btn-danger" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("deleteCommentAdmin!", [$comment->id])) ?>">Smazat</a></td>
                             
                         </tr>    
-                    {/foreach}    
+<?php
+			$iterations++;
+		}
+?>
                 </tbody>    
             </table>  
         </div>
     </div>                  
 </div>
-{/block}
-{block head}
-{include parent}
+<?php
+	}
+
+
+	function blockHead($_args)
+	{
+		extract($_args);
+		$this->renderBlockParent('head', get_defined_vars());
+?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.3.2/css/colReorder.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
@@ -44,10 +103,15 @@
             display: none;
         }
     </style>
-{/block}
+<?php
+	}
 
-{block scripts}
-{include parent}
+
+	function blockScripts($_args)
+	{
+		extract($_args);
+		$this->renderBlockParent('scripts', get_defined_vars());
+?>
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/colreorder/1.3.2/js/dataTables.colReorder.min.js"></script>
@@ -56,7 +120,7 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-<script type="text/javascript" language="javascript" src="{$basePath}/js/jszip.js"></script> 
+<script type="text/javascript" language="javascript" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 59 */ ?>/js/jszip.js"></script> 
 <script>
     $(document).ready(function () {
         $("p.preview").on("click",function(){
@@ -110,4 +174,7 @@
     });
 </script>
 
-{/block}
+<?php
+	}
+
+}
