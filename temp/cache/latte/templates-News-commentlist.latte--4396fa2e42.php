@@ -35,7 +35,7 @@ class Template4396fa2e42 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['row'])) trigger_error('Variable $row overwritten in foreach on line 19');
+		if (isset($this->params['comment'])) trigger_error('Variable $comment overwritten in foreach on line 20');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -53,8 +53,9 @@ class Template4396fa2e42 extends Latte\Runtime\Template
             <table class="table table-striped table-responsive" id="list">
                 <thead>
                     <tr>
-                        <th>Titulek</th>
+                        <th>Komentář</th>
                         <th>Rubrika</th>
+                        <th>Content</th>
                         <th>Publikováno</th>
                         <th>Autor</th>
                         <th>Akce</th>
@@ -63,27 +64,25 @@ class Template4396fa2e42 extends Latte\Runtime\Template
                 <tbody>
 <?php
 		$iterations = 0;
-		foreach ($data as $row) {
-			if ($user->getId() == $row->user_id || in_array('administrator',$user->getRoles())) {
+		foreach ($data as $comment) {
 ?>
                         <tr>
-                            <td><?php echo LR\Filters::escapeHtmlText($row->title) /* line 22 */ ?></a></td>
-                            <td><?php echo LR\Filters::escapeHtmlText($row->category) /* line 23 */ ?></td>
-                            <td><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $row->created_at, 'd.m.Y')) /* line 24 */ ?></td>
-                            <td><?php echo LR\Filters::escapeHtmlText($row->ref('users','user_id')->username) /* line 25 */ ?></td>
-                            <td>
-                                <a class="btn btn-primary" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:update", [$row->id])) ?>">Upravit</a>
-                                <a class="btn btn-danger" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:delete", [$row->id])) ?>">Smazat</a>
-                            </td>
-                        </tr>
+                            <td><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$comment->news_id])) ?>"><?php
+			echo LR\Filters::escapeHtmlText($comment->ref('news','news_id')->title) /* line 22 */ ?></a></td> 
+                            <td><?php echo LR\Filters::escapeHtmlText($comment->ref('news','news_id')->category) /* line 23 */ ?></td>
+                            <td><p class="preview"><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->truncate, $comment->content, 60)) /* line 24 */ ?></p><p class="real"><?php
+			echo LR\Filters::escapeHtmlText($comment->content) /* line 24 */ ?></p></td>
+                            <td><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $comment->created_at, '%d. %m. %Y, %H:%m')) /* line 25 */ ?></td>
+                            <td><?php echo LR\Filters::escapeHtmlText($comment->ref('users','user_id')->username) /* line 26 */ ?></a></td>              
+                            <td><a class="btn btn-danger" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("deleteCommentAdmin!", [$comment->id])) ?>">Smazat</a></td>
+                            
+                        </tr>    
 <?php
-			}
 			$iterations++;
 		}
 ?>
                 </tbody>    
             </table>  
-            <p><a class="btn btn-success" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:insert")) ?>">Nový</a></td></p>  
         </div>
     </div>                  
 </div>
@@ -99,6 +98,11 @@ class Template4396fa2e42 extends Latte\Runtime\Template
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/1.3.2/css/colReorder.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+    <style>
+        p.real {
+            display: none;
+        }
+    </style>
 <?php
 	}
 
@@ -116,9 +120,17 @@ class Template4396fa2e42 extends Latte\Runtime\Template
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-<script type="text/javascript" language="javascript" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 57 */ ?>/js/jszip.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 59 */ ?>/js/jszip.js"></script> 
 <script>
     $(document).ready(function () {
+        $("p.preview").on("click",function(){
+            $(this).toggle(500);
+            $(this).next('p').toggle(500);
+        });
+        $("p.real").on("click",function(){
+            $(this).toggle(500);
+            $(this).prev('p').toggle(500);
+        });
         $('#list').DataTable({
             lengthMenu: [5, 10, 50, "vše"],
             colReorder: true,

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Pon 30. dub 2018, 08:22
+-- Vytvořeno: Pon 28. kvě 2018, 08:15
 -- Verze serveru: 5.6.24
 -- Verze PHP: 5.6.8
 
@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 INSERT INTO `comments` (`id`, `news_id`, `user_id`, `content`, `created_at`) VALUES
-(35, 24, 18, 'test123', '2018-04-30 05:52:17'),
 (36, 35, 18, 'Kappa 123', '2018-04-30 05:57:19'),
 (37, 35, 18, 'Kappa 123', '2018-04-30 05:57:23');
 
@@ -57,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `user_id` int(11) unsigned NOT NULL,
   `category` enum('projekt','novinky','ostatní') COLLATE utf8_czech_ci NOT NULL,
   `stars` int(1) unsigned NOT NULL DEFAULT '3'
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 --
 -- Vypisuji data pro tabulku `news`
@@ -67,7 +66,8 @@ INSERT INTO `news` (`id`, `title`, `content`, `created_at`, `user_id`, `category
 (24, 'Jágr na Světovém poháru hrát nebude', '<p>Hokejov&aacute; reprezentace se na podzim v Torontu představ&iacute; na Světov&eacute;m poh&aacute;ru bez Jarom&iacute;ra J&aacute;gra. &Scaron;&eacute;fov&eacute; česk&eacute;ho v&yacute;běru o start hvězdn&eacute;ho &uacute;točn&iacute;ka Floridy hodně st&aacute;li, gener&aacute;ln&iacute; manažer Martin Ručinsk&yacute; v&scaron;ak nakonec usly&scaron;el zam&iacute;tav&eacute; J&aacute;grovo stanovisko.</p>', '2016-05-29 19:19:42', 9, 'ostatní', 3),
 (35, 'Testovací článek', 'Kappa 123 in the CHAT!!', '2018-04-30 05:55:49', 18, 'projekt', 3),
 (36, 'admin članek', 'admin članek', '2018-04-30 06:16:47', 11, 'novinky', 3),
-(37, 'musim', 'lol', '2018-04-30 06:19:25', 18, 'novinky', 3);
+(37, 'musim', 'lol', '2018-04-30 06:19:25', 18, 'novinky', 3),
+(38, 'Current Version: 0.70.0', 'It’s time for release 0.70. It’s a little later than expected because of a major overhaul of how our frontend is build. It should not have any impact on how the frontend looks or behaves. Thanks to all the people running the beta who helped test this. Right now it looks like Firefox is still having some issues running the Hass.io panel. We’re working on releasing a fix for that soon.', '2018-05-28 05:40:45', 18, 'novinky', 3);
 
 -- --------------------------------------------------------
 
@@ -136,7 +136,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT pro tabulku `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT pro tabulku `users`
 --

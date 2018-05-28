@@ -51,7 +51,7 @@ class Templatef6cf245aab extends Latte\Runtime\Template
     <!-- Heading Row -->
     <div class="row">
         <div class="col-md-8">
-            <img class="img-responsive img-rounded" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 11 */ ?>/images/news.jpg" alt="News">
+            <img class="img-responsive img-rounded" src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 11 */ ?>/images/default-social.png" alt="News">
         </div>
         <!-- /.col-md-8 -->
         <div class="col-md-4">

@@ -5,77 +5,77 @@ return array (
     'App\\Acl\\Acl' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\acl\\Acl.php',
-      'time' => 1491920478,
+      'time' => 1527484090,
     ),
     'App\\Forms\\FormFactory' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\forms\\FormFactory.php',
-      'time' => 1487693992,
+      'time' => 1527484090,
     ),
     'App\\Forms\\SignInFormFactory' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\forms\\SignInFormFactory.php',
-      'time' => 1491835474,
+      'time' => 1527484090,
     ),
     'App\\Forms\\SignUpFormFactory' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\forms\\SignUpFormFactory.php',
-      'time' => 1491834700,
-    ),
-    'App\\Model\\UserManager' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\model\\UserManager.php',
-      'time' => 1518991413,
-    ),
-    'App\\Model\\DuplicateNameException' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\model\\UserManager.php',
-      'time' => 1518991413,
-    ),
-    'App\\Presenters\\BasePresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\BasePresenter.php',
-      'time' => 1492804398,
-    ),
-    'App\\Presenters\\Error4xxPresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\Error4xxPresenter.php',
-      'time' => 1487693992,
-    ),
-    'App\\Presenters\\ErrorPresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\ErrorPresenter.php',
-      'time' => 1487693992,
-    ),
-    'App\\Presenters\\HomepagePresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\HomepagePresenter.php',
-      'time' => 1518991460,
-    ),
-    'App\\Presenters\\SignPresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\SignPresenter.php',
-      'time' => 1487693992,
-    ),
-    'App\\Presenters\\UserPresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\UserPresenter.php',
-      'time' => 1518991536,
-    ),
-    'App\\RouterFactory' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\router\\RouterFactory.php',
-      'time' => 1491920184,
-    ),
-    'App\\Presenters\\NewsPresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\NewsPresenter.php',
-      'time' => 1525674367,
+      'time' => 1527484090,
     ),
     'App\\Model\\NewsManager' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\model\\NewsManager.php',
-      'time' => 1525675172,
+      'time' => 1527484090,
+    ),
+    'App\\Model\\UserManager' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\model\\UserManager.php',
+      'time' => 1527484090,
+    ),
+    'App\\Model\\DuplicateNameException' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\model\\UserManager.php',
+      'time' => 1527484090,
+    ),
+    'App\\RouterFactory' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\router\\RouterFactory.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\BasePresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\BasePresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\Error4xxPresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\Error4xxPresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\ErrorPresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\ErrorPresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\HomepagePresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\HomepagePresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\NewsPresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\NewsPresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\SignPresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\SignPresenter.php',
+      'time' => 1527484090,
+    ),
+    'App\\Presenters\\UserPresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\UserPresenter.php',
+      'time' => 1527484090,
     ),
   ),
   1 => 
