@@ -36,13 +36,11 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <i class="fa fa-bars">
+                    </i>
                 </button>
                 <a class="navbar-brand" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">
-                    <img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 43 */ ?>/images/logo.jpg" alt="Logo">
+                    <img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 41 */ ?>/images/logo.jpg" alt="Logo">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,7 +77,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 ?>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
-			echo LR\Filters::escapeHtmlText($user->getIdentity()->username) /* line 75 */ ?> <span class="caret"></span></a>
+			echo LR\Filters::escapeHtmlText($user->getIdentity()->username) /* line 73 */ ?> <span class="caret"></span></a>
                       <ul class="dropdown-menu">
 <?php
 			if ($user->isAllowed('News')) {
@@ -121,7 +119,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>        <div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 104 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 102 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -130,6 +128,16 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 <?php
 		$this->renderBlock('content', $this->params, 'html');
 ?>
+    <div class="footer">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; SŠPU Opava 2018</p>
+                </div>
+            </div>
+        </footer>
+    </div>
     
 <?php
 		$this->renderBlock('scripts', get_defined_vars());
@@ -144,7 +152,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 104');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 102');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -155,7 +163,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 		extract($_args);
 ?>
     <meta charset="utf-8">
-    <title>Novinky | <?php
+    <title>Blog Hassio | <?php
 		if (isset($this->blockQueue["title"])) {
 			$this->renderBlock('title', $this->params, function ($s, $type) {
 				$_fi = new LR\FilterInfo($type);
@@ -165,7 +173,7 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 ?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Zpravodajský server v Nette Framework">
+    <meta name="description" content="Blog hassio v Nette Framework">
     <meta name="author" content="Vojtěch Kronika">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 16 */ ?>/css/bootstrap.min.css" rel="stylesheet">
@@ -188,16 +196,16 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 		extract($_args);
 ?>
         <!-- jQuery -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 110 */ ?>/js/jquery.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 118 */ ?>/js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 112 */ ?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 120 */ ?>/js/bootstrap.min.js"></script>
         <script>
             $.fn.bootstrapBtn = $.fn.button.noConflict();
         </script>
 	<!--<script src="https://nette.github.io/resources/js/netteForms.min.js"></script> -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 117 */ ?>/js/jquery-ui.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 118 */ ?>/js/nette.ajax.js"></script>        
-	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 119 */ ?>/js/main.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 125 */ ?>/js/jquery-ui.min.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 126 */ ?>/js/nette.ajax.js"></script>        
+	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 127 */ ?>/js/main.js"></script>
 <?php
 	}
 

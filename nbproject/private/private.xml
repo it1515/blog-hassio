@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/templates/News/commentaries.latte</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/templates/@layout.latte</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/templates/News/commentlist.latte</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/templates/News/view.latte</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/NewsPresenter.php</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/presenters/templates/News/list.latte</file>
-            <file>file:/C:/xampp/htdocs/blog-hassio/app/config/config.neon</file>
+            <file>file:/D:/www/blog-hassio/www/css/style.css</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/HomepagePresenter.php</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/templates/@layout.latte</file>
+            <file>file:/D:/www/blog-hassio/app/presenters/templates/Homepage/default.latte</file>
         </group>
     </open-files>
 </project-private>
