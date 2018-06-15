@@ -17,7 +17,8 @@ class HomepagePresenter extends BasePresenter {
 
     public function renderDefault() {
         $this->template->latest = $this->newsManager->getLatest(1, 0);
-        $this->template->news = $this->newsManager->getLatest(3, 1);
+        //$this->template->news = $this->newsManager->getLatest(3, 0);
+        $this->template->news = $this->newsManager->getByCategory222();
         $this->template->user = $this->getUser();
         //Debugger::dump($this->template->latest);
         //Debugger::log($this->template->latest);

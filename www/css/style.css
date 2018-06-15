@@ -5,6 +5,15 @@ body {
 	background: white;
 }
 
+#home-assistant {
+    width: 100%;
+    position: relative;
+    margin-top: -20px;
+}
+
+#custom-div {
+}
+
 h1 {
 	color: gray;
 }

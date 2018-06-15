@@ -128,6 +128,9 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 <?php
 		$this->renderBlock('content', $this->params, 'html');
 ?>
+    <div class="container"> 
+        <br><br><br><br><br>
+    </div>
     <div class="footer">
         <!-- Footer -->
         <footer>
@@ -196,16 +199,16 @@ class Template7ab1b70e83 extends Latte\Runtime\Template
 		extract($_args);
 ?>
         <!-- jQuery -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 118 */ ?>/js/jquery.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 121 */ ?>/js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 120 */ ?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 123 */ ?>/js/bootstrap.min.js"></script>
         <script>
             $.fn.bootstrapBtn = $.fn.button.noConflict();
         </script>
 	<!--<script src="https://nette.github.io/resources/js/netteForms.min.js"></script> -->
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 125 */ ?>/js/jquery-ui.min.js"></script>
-        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 126 */ ?>/js/nette.ajax.js"></script>        
-	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 127 */ ?>/js/main.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 128 */ ?>/js/jquery-ui.min.js"></script>
+        <script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 129 */ ?>/js/nette.ajax.js"></script>        
+	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 130 */ ?>/js/main.js"></script>
 <?php
 	}
 

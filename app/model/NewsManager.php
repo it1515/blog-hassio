@@ -52,6 +52,12 @@ class NewsManager {
     public function getByCategory($category) {
         return $this->database->table(self::TABLE_NAME)->where('category = ?', $category)->order(self::COLUMN_CREATED_AT . ' DESC')->fetchAll();
     }
+    
+    public function getByCategory222() {
+        return $this->database->table(self::TABLE_NAME)->where('category = ?', 1)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll()
+        + $this->database->table(self::TABLE_NAME)->where('category = ?', 2)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll()
+        + $this->database->table(self::TABLE_NAME)->where('category = ?', 3)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll();
+    }
 
     /**
      * Get latest news.

@@ -3,9 +3,24 @@
 {/block}
 {block content}
 <!-- Page Content -->
-<div class="container">
-    
-
-    
+<div>
+    <div id="custom-div">
+        <img class="img-responsive" id="home-assistant" src="{$basePath}/images/default-social.png" alt="img-home-assistant">
+    </div>
+    <div class="container">
+        <div class="row" id="uvodnik">
+            {foreach $news as $item}
+                <div class="col-md-4">
+                    <h2>{$item->category}</h2>
+                    <figure><img src="{$basePath}/images/{$item->category}.jpg" class="img img-responsive img-rounded" alt="{$item->category}"></figure>                    
+                    <h3><a n:href="News:view $item->id">{$item->title}</a></h3>
+                    <p class="small"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        <a n:href="News:category $item->category">{$item->category}</a> | {$item->created_at|date:'d.m.Y'}</p>
+                    <p>{$item->content|truncate:200|noescape}</p>
+                    <a class="btn btn-default" n:href="News:view $item->id">Čti dále</a>
+                </div>
+            {/foreach}                
+        </div>
+    </div>
 </div>
 {/block}

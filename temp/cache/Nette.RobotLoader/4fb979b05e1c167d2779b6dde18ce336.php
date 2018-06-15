@@ -22,11 +22,6 @@ return array (
       'file' => 'D:\\www\\blog-hassio\\app\\forms\\SignUpFormFactory.php',
       'time' => 1527484090,
     ),
-    'App\\Model\\NewsManager' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\model\\NewsManager.php',
-      'time' => 1527484090,
-    ),
     'App\\Model\\UserManager' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\model\\UserManager.php',
@@ -57,11 +52,6 @@ return array (
       'file' => 'D:\\www\\blog-hassio\\app\\presenters\\ErrorPresenter.php',
       'time' => 1527484090,
     ),
-    'App\\Presenters\\HomepagePresenter' => 
-    array (
-      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\HomepagePresenter.php',
-      'time' => 1527484090,
-    ),
     'App\\Presenters\\NewsPresenter' => 
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\presenters\\NewsPresenter.php',
@@ -76,6 +66,16 @@ return array (
     array (
       'file' => 'D:\\www\\blog-hassio\\app\\presenters\\UserPresenter.php',
       'time' => 1527484090,
+    ),
+    'App\\Presenters\\HomepagePresenter' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\presenters\\HomepagePresenter.php',
+      'time' => 1529058766,
+    ),
+    'App\\Model\\NewsManager' => 
+    array (
+      'file' => 'D:\\www\\blog-hassio\\app\\model\\NewsManager.php',
+      'time' => 1529058914,
     ),
   ),
   1 => 
