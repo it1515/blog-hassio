@@ -160,6 +160,11 @@ class NewsPresenter extends BasePresenter {
             $form->addSelect("user_id", "Autor", $authors)
                     ->setDefaultValue($this->getUser()->getId());
         }
+        
+        $form->addUpload('addImage','Přiložit obrázek')
+             ->setAttribute('class','form-control')                  
+             ->addCondition(Form::FILLED)
+             ->addRule(Form::IMAGE, 'Soubor musí být JPEG, PNG nebo GIF.');
 
         $form->addSubmit('submit', 'Odeslat')
                 ->setAttribute("class", "btn btn-success");
@@ -174,6 +179,12 @@ class NewsPresenter extends BasePresenter {
     public function newsFormSucceeded(Form $form, $values) {
         $id = $this->getParameter("id");
         $values['user_id'] = empty($values['user_id']) ? $this->getUser()->getId() : $values['user_id'];
+        $path = "/www/images" . $values->addImage->getName();
+        $values->addImage->move($path);
+        if ($values['addImage']->isImage() and $values['addImage']->isOk()) {
+            $values['photo'] = $values['addImage']->toImage();
+        }     
+        unset($values['addImage']);
         if ($id) {
             $this->newsManager->update($id, $values);
             $this->flashMessage("Záznam byl úspěšně upraven");

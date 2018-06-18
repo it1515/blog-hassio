@@ -9,6 +9,11 @@
         <!-- Heading Row -->
         <div class="row">            
             <main class="col-md-8">
+                {if $data->photo}
+                <p><img src="{$data->photo|dataStream}" class="img-responsive img-rounded"></p>
+                {else}
+                <p><img src="{$basePath}/images/{$data->category}.png" class="img img-responsive img-rounded" alt="{$data->category}"></p>
+                {/if}
                 <article>
                     <h2>{$data->title}</h2>
                     <p>{$data->content|noescape}</p>
@@ -39,7 +44,7 @@
                 {if $author->photo}
                 <p><img src="{$author->photo|dataStream}" class="img-responsive img-circle"></p>
                 {else}
-                <p><img src="{$basePath}/images/person2.jpg" class="img-responsive img-circle"></p>
+                <p><img src="{$basePath}/images/person1.png" class="img-responsive img-circle"></p>
                 {/if}
                 <h3>{$author->name}</h3>
                 <p>{$author->email}</p>

@@ -71,6 +71,7 @@ form .error {
 .navbar-toggle:hover {color: #55C1F0; background-color: white;}
 
 #bs-example-navbar-collapse-1 {background-color: #55C1F0; color: #337AB7;}
+#bs-example-navbar-collapse-1 > ul > li > a {background-color: #55C1F0; color: white;}
 #bs-example-navbar-collapse-1 > ul > li > a:hover ,
 #bs-example-navbar-collapse-1 > ul > li > a:focus {color: #337AB7; background-color: white;}
 
@@ -80,12 +81,28 @@ form .error {
 
 #uvodnik h2 {background-color: #337AB7; text-align: center; text-transform: uppercase; padding: 10px; color: white; font-size: 1.5em;}
 #uvodnik h3 {font-size: 1.2em;}
+#uvodnik2 h2 {background-color: #337AB7; text-align: center; text-transform: uppercase; padding: 10px; color: white; font-size: 1.5em;}
+#uvodnik2 h3 {font-size: 1.2em;}
 .small {font-size: 0.8em;}
 
 @media only screen and (max-width: 766px) {
 .collapsing, .in {background-color: #f7f7f7;}
-.collapsing ul li a, .in ul li a {color: #555!important;}
-.collapsing ul li a:hover, .in ul li a:hover {color: #337AB7!important;}
+.collapsing ul li a, .in ul li a {color: white !important;}
+.collapsing ul li a:hover, .in ul li a:hover {color: #337AB7 !important;}
+}
+
+.img {
+    position: relative;
+    float: left;
+    width:  100%;
+    height: auto;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+.img-height {
+    height: 50px;
 }
 
 .footer {

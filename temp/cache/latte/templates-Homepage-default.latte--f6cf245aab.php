@@ -29,7 +29,7 @@ class Templatef6cf245aab extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['item'])) trigger_error('Variable $item overwritten in foreach on line 12');
+		if (isset($this->params['item'])) trigger_error('Variable $item overwritten in foreach on line 12, 25');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -60,7 +60,7 @@ class Templatef6cf245aab extends Latte\Runtime\Template
                 <div class="col-md-4">
                     <h2><?php echo LR\Filters::escapeHtmlText($item->category) /* line 14 */ ?></h2>
                     <figure><img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 15 */ ?>/images/<?php
-			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($item->category)) /* line 15 */ ?>.jpg" class="img img-responsive img-rounded" alt="<?php
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($item->category)) /* line 15 */ ?>.png" class="img img-responsive img-rounded" alt="<?php
 			echo LR\Filters::escapeHtmlAttr($item->category) /* line 15 */ ?>"></figure>                    
                     <h3><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$item->id])) ?>"><?php
 			echo LR\Filters::escapeHtmlText($item->title) /* line 16 */ ?></a></h3>
@@ -68,6 +68,29 @@ class Templatef6cf245aab extends Latte\Runtime\Template
                         <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:category", [$item->category])) ?>"><?php
 			echo LR\Filters::escapeHtmlText($item->category) /* line 18 */ ?></a> | <?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $item->created_at, 'd.m.Y')) /* line 18 */ ?></p>
                     <p><?php echo call_user_func($this->filters->truncate, $item->content, 200) /* line 19 */ ?></p>
+                    <a class="btn btn-default" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$item->id])) ?>">Čti dále</a>
+                </div>
+<?php
+			$iterations++;
+		}
+?>
+        </div>
+        <div class="row" id="uvodnik2">
+<?php
+		$iterations = 0;
+		foreach ($news2 as $item) {
+?>
+                <div class="col-md-4">
+                    <h2><?php echo LR\Filters::escapeHtmlText($item->category) /* line 27 */ ?></h2>
+                    <figure><img src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 28 */ ?>/images/<?php
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($item->category)) /* line 28 */ ?>.png" class="img img-responsive img-rounded" alt="<?php
+			echo LR\Filters::escapeHtmlAttr($item->category) /* line 28 */ ?>"></figure>                    
+                    <h3><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$item->id])) ?>"><?php
+			echo LR\Filters::escapeHtmlText($item->title) /* line 29 */ ?></a></h3>
+                    <p class="small"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:category", [$item->category])) ?>"><?php
+			echo LR\Filters::escapeHtmlText($item->category) /* line 31 */ ?></a> | <?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->date, $item->created_at, 'd.m.Y')) /* line 31 */ ?></p>
+                    <p><?php echo call_user_func($this->filters->truncate, $item->content, 200) /* line 32 */ ?></p>
                     <a class="btn btn-default" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("News:view", [$item->id])) ?>">Čti dále</a>
                 </div>
 <?php

@@ -17,7 +17,8 @@ class NewsManager {
             COLUMN_TITLE = 'title',
             COLUMN_CONTENT = 'content',
             COLUMN_CREATED_AT = 'created_at',
-            COLUMN_CATEGORY = 'category';
+            COLUMN_CATEGORY = 'category',
+            COLUMN_PHOTO = 'photo';
 
     /** @var Nette\Database\Context */
     private $database;
@@ -53,10 +54,16 @@ class NewsManager {
         return $this->database->table(self::TABLE_NAME)->where('category = ?', $category)->order(self::COLUMN_CREATED_AT . ' DESC')->fetchAll();
     }
     
-    public function getByCategory222() {
+    public function getByCategory111() {
         return $this->database->table(self::TABLE_NAME)->where('category = ?', 1)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll()
         + $this->database->table(self::TABLE_NAME)->where('category = ?', 2)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll()
         + $this->database->table(self::TABLE_NAME)->where('category = ?', 3)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 0)->fetchAll();
+    }
+    
+    public function getByCategory222() {
+        return $this->database->table(self::TABLE_NAME)->where('category = ?', 1)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 1)->fetchAll()
+        + $this->database->table(self::TABLE_NAME)->where('category = ?', 2)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 1)->fetchAll()
+        + $this->database->table(self::TABLE_NAME)->where('category = ?', 3)->order(self::COLUMN_CREATED_AT . ' DESC')->limit(1, 1)->fetchAll();
     }
 
     /**
