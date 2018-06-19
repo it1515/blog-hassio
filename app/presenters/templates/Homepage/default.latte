@@ -12,7 +12,13 @@
             {foreach $news as $item}
                 <div class="col-md-4">
                     <h2>{$item->category}</h2>
-                    <figure><img src="{$basePath}/images/{$item->category}.png" class="img img-responsive img-rounded" alt="{$item->category}"></figure>                    
+                    <figure>
+                        {if $item->photo}
+                        <p><img src="{$item->photo|dataStream}" class="center img-responsive img-rounded"></p>
+                        {else}
+                        <p><img src="{$basePath}/images/{$item->category}.png" class="center img-responsive img-rounded" alt="{$item->category}"></p>
+                        {/if}
+                    </figure>                    
                     <h3><a n:href="News:view $item->id">{$item->title}</a></h3>
                     <p class="small"><i class="fa fa-calendar-o" aria-hidden="true"></i>
                         <a n:href="News:category $item->category">{$item->category}</a> | {$item->created_at|date:'d.m.Y'}</p>
@@ -25,7 +31,13 @@
             {foreach $news2 as $item}
                 <div class="col-md-4">
                     <h2>{$item->category}</h2>
-                    <figure><img src="{$basePath}/images/{$item->category}.png" class="img img-responsive img-rounded" alt="{$item->category}"></figure>                    
+                    <figure>
+                        {if $item->photo}
+                        <p><img src="{$item->photo|dataStream}" class="center img-responsive img-rounded"></p>
+                        {else}
+                        <p><img src="{$basePath}/images/{$item->category}.png" class="center img-responsive img-rounded" alt="{$item->category}"></p>
+                        {/if}
+                    </figure>                     
                     <h3><a n:href="News:view $item->id">{$item->title}</a></h3>
                     <p class="small"><i class="fa fa-calendar-o" aria-hidden="true"></i>
                         <a n:href="News:category $item->category">{$item->category}</a> | {$item->created_at|date:'d.m.Y'}</p>
